@@ -1,0 +1,26 @@
+---
+- hosts: all
+  tasks:
+    - name: Vérifie si le script rw existe
+      stat:
+        path: /usr/local/sbin/remountrw.sh
+      register: script_rw
+
+    - name: execute script if existe
+      command: sh /usr/local/sbin/remountrw.sh
+      when: script_rw.stat.exists
+
+    - name: Update all installed packages using YUM module
+      yum:
+        name: '*'
+        state: latest
+    - name: Vérifie si le script ro existe
+      stat:
+        path: /usr/local/sbin/remountro.sh
+      register: script_ro
+
+    - name: execute script if existe
+      command: sh /usr/local/sbin/remountro.sh
+      when: script_ro.stat.exists
+...
+
