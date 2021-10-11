@@ -13,7 +13,60 @@
     - name: Update all installed packages using YUM module
       yum:
         name: '*'
+        exclude:
+          - php7.4
+          - php
+          - php-bz2
+          - php-calendar
+          - php-ctype
+          - php-curl
+          - php-dom
+          - php-exif
+          - php-fileinfo
+          - php-ftp
+          - php-gd
+          - php-gettext
+          - php-iconv
+          - php-intl
+          - php-ldap
+          - php-mbstring
+          - php-mysqlnd
+          - php-pdo
+          - php-phar
+          - php-posix
+          - php-shmop
+          - php-simplexml
+          - php-soap
+          - php-sockets
+          - php-sqlite3
+          - php-sysvmsg
+          - php-sysvsem
+          - php-sysvshm
+          - php-tokenizer
+          - php-xml
+          - php-xmlwriter
+          - php-xsl
+          - php-mysqli
+          - php-pdo_mysql
+          - php-xmlreader
+          - php-json
+          - httpd
+          - git
+          - yarn
+          - libxml2
+          - sendmail
+          - lftp
+          - nodejs
+          - mariadb-server
+          - docker-ce
+          - curl
+          - python39
+          - gcc-c++
+          - make
         state: latest
+        
+        
+        
     - name: Vérifie si le script ro existe
       stat:
         path: /usr/local/sbin/remountro.sh
